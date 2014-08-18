@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/redmond/jquery-ui.css", "application" %>
+    <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js", "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.min.js", "application" %>
+  <title><%= yield :title %></title>
+</head>
+<body>
+
+	<div id="user_nav">
+  <% if current_user %>
+    Logged in as <%= current_user.email %>.
+    <%= link_to "Log out", log_out_path %>
+  <% else %>
+    <%= link_to "Sign up", sing_up_path %> or
+    <%= link_to "log in", log_in_path %>
+  <% end %>
+</div>
+
+
+
+<% flash.each do |name, msg| %>
+  <% content_tag :div, msg, :id => "flash_#{name}" %>
+<% end %>
+
+<%= yield %>
+
+</body>
+</html>

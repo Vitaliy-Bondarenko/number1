@@ -1,0 +1,9 @@
+// Place all the styles related to the tasks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+table.pretty {
+	border-collapse: collapse;
+	th, td { border: dotted 1px #aaa; padding: 0.5em; vertical-align: center; text-align: left; }
+}
+.del { color: blue; border-bottom: dotted; cursor: pointer; }
