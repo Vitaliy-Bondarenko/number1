@@ -28,8 +28,10 @@ class TasksController < ApplicationController
 
 	def destroy
   		@tasks = Task.find(params[:id])
-  		@tasks.destroy 
+  		@user_mail = current_user
+  		#@tasks.destroy 
   		#redirect_to tasks_path
+  		RegistrationMailer.task_destroyed(@tasks, @user_mail).deliver
   		
 	end
 
