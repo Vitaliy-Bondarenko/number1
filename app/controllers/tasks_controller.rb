@@ -26,8 +26,12 @@ class TasksController < ApplicationController
   		@task = Task.find(params[:id])
 	end
 
+	def show
+  		@task = Task.find(params[:id])
+	end
+
 	def destroy
-  		@tasks = Task.find(params[:id])
+  		@tasks = [Task.find(params[:id])]
   		@user_mail = current_user
   		#@tasks.destroy 
   		#redirect_to tasks_path
@@ -45,18 +49,16 @@ class TasksController < ApplicationController
 	end
 
 	def delete_tasks
-	  Task.delete(params[:task_ids])
-	  redirect_to tasks_path
+		#binding.pry
+		@user_mail = current_user
+	  	@tasks = Task.find(params[:task_ids])
+	  	Task.delete(params[:task_ids])
+	  	redirect_to tasks_path
+	  	RegistrationMailer.task_destroyed(@tasks, @user_mail).deliver
 	end
-	
-
-	
-
 
 
 	private 
-
-
 
   def sort_column
     Task.column_names.include?(params[:sort]) ? params[:sort] : "title"

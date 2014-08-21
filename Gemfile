@@ -9,6 +9,7 @@ gem 'pry'
 
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-sass'
+gem 'twitter-bootstrap-rails'
 
 gem "bcrypt-ruby", :require => "bcrypt"
 # Use SCSS for stylesheets

@@ -1,14 +1,15 @@
+<div class="container">
 <h2>Sign up</h2>
 
 <%= form_for @user do |f| %>
   <% if @user.errors.any? %>
-  	<div class="error_messages">
-  		<h2>Form is invalid</h2>
-  		<ul>
-  			<% for messages in @user.errors.full_messages %>
-  			<li><%= messages %></li>
-  		</ul>
-  	</div>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for messages in @user.errors.full_messages %>
+        <li><%= messages %></li>
+      </ul>
+    </div>
   <% end %>  
   <% end %> 
 
@@ -24,14 +25,14 @@
   <div><%= f.label :age %><br />
   <%= f.text_field :age %></div>
 
-	
-  	<div><%= f.label :password %><br />
+  
+    <div><%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "off" %></div>
 
-  	<div><%= f.label :password_confirmation %><br />
+    <div><%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
+<br />
   <p class="button"><%= f.submit %></p>
 <% end %>
-
+</div>
 

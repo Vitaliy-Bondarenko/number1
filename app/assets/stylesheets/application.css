@@ -1,4 +1,7 @@
 
+
+
+
 .pretty th .current {
   padding-right: 12px;
   background-repeat: no-repeat;
@@ -12,6 +15,14 @@
 .pretty th .desc {
   background-image: url(/images/down_arrow.gif);
 }
+
+table.pretty {
+	border-collapse: collapse;
+	th, td { border: dotted 1px #aaa; padding: 0.5em; vertical-align: center; text-align: left; }
+}
+
+
+.del { color: blue; border-bottom: dotted; cursor: pointer; }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
