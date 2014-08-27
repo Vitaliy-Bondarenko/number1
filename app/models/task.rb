@@ -3,6 +3,7 @@ class Task < ActiveRecord::Base
 	  #validates :priority, numericality: true
 	  validates :title, presence: true,
                     length: { minimum: 5 }
+      validates :priority, presence: true
       validate :due_date_cannot_be_in_the_past
 
       def due_date_cannot_be_in_the_past

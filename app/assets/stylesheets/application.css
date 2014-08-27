@@ -1,28 +1,3 @@
-
-
-
-
-.pretty th .current {
-  padding-right: 12px;
-  background-repeat: no-repeat;
-  background-position: right center;
-}
-
-.pretty th .asc {
-  background-image: url(/images/up_arrow.gif);
-}
-
-.pretty th .desc {
-  background-image: url(/images/down_arrow.gif);
-}
-
-table.pretty {
-	border-collapse: collapse;
-	th, td { border: dotted 1px #aaa; padding: 0.5em; vertical-align: center; text-align: left; }
-}
-
-
-.del { color: blue; border-bottom: dotted; cursor: pointer; }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -36,5 +11,41 @@ table.pretty {
  * file per style scope.
  *
  *= require_tree .
- *= require_self
+ *= require_self 
  */
+
+
+
+.table th .current {
+  padding-right: 25px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.table th .asc {
+  background-image: url(/images/up_arrow.jpg);
+}
+
+.table th .desc {
+  background-image: url(/images/down_arrow.jpg);
+}
+
+table.table {
+	border-collapse: collapse;
+	th, td { border: dotted 1px #aaa; padding: 0.5em; vertical-align: center; text-align: left; }
+}
+
+
+.del { color: blue; border-bottom: dotted; cursor: pointer; }
+
+.cont{
+    width:300px;
+    margin-left:20px;
+    margin-top:5px;
+    padding:10px 20px;
+    font-size:20px;
+}
+
+.col-lg-9{
+    font-size:20px;
+}

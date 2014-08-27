@@ -6,10 +6,17 @@ gem 'rails', '4.1.4'
 # Use sqlite3 as the database for Active Record
 gem 'mysql'
 gem 'pry'
-
+gem 'therubyracer'
 gem 'bootstrap-datepicker-rails'
+gem 'less-rails-bootstrap'
 gem 'bootstrap-sass'
 gem 'twitter-bootstrap-rails'
+
+group :test do
+  gem 'rspec-rails'
+  gem 'factory_girl'
+end
+
 
 gem "bcrypt-ruby", :require => "bcrypt"
 # Use SCSS for stylesheets

@@ -2,7 +2,11 @@ class TasksController < ApplicationController
 	helper_method :sort_column, :sort_direction, 
 
 	def new
-		@task = Task.new
+		if current_user == nil
+			redirect_to root_path		
+		else 
+			@task = Task.new
+		end
 	end
 
 	def create
@@ -17,17 +21,29 @@ class TasksController < ApplicationController
 
 	def index
 		#binding.pry
-		@task = current_user.tasks.order(sort_column + " " + sort_direction)
+		if current_user == nil
+			redirect_to root_path		
+		else 
+			@task = current_user.tasks.order(sort_column + " " + sort_direction)
+		end
+		#binding.pry
 		# + " " + params[:direction])
 		#current_user.tasks
 	end	
 
 	def edit
   		@task = Task.find(params[:id])
+  		if current_user.id == @task.user_id
+  		else redirect_to tasks_path
+  		end
 	end
 
 	def show
-  		@task = Task.find(params[:id])
+		@task = Task.find(params[:id])
+		#binding.pry
+		if current_user.id == @task.user_id
+  		else redirect_to tasks_path
+  		end
 	end
 
 	def destroy

@@ -1,7 +1,7 @@
 $ ->
   checked_all = ->
     checkbox = $("#checked_all")
-    checkboxes = $(".pretty input")
+    checkboxes = $(".table input")
     checkbox.on "click", ->
       checkboxes.prop "checked", checkbox.prop("checked")
       return
