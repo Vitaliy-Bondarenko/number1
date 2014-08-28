@@ -7,14 +7,14 @@ development:
   port: 3306
 test:
   adapter: mysql
-  database: con_db
+  database: con_db_test
   username: root
   password: qwe123
   host: 127.0.0.1
   port: 3306
 production:
   adapter: mysql
-  database: con_db
+  database: con_db_pro
   username: root
   password: qwe123
   host: 127.0.0.1
