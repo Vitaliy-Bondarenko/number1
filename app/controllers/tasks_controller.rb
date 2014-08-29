@@ -47,12 +47,11 @@ class TasksController < ApplicationController
 	end
 
 	def destroy
-  		@tasks = [Task.find(params[:id])]
+  		@tasks = Task.find(params[:id])
   		@user_mail = current_user
-  		#@tasks.destroy 
-  		#redirect_to tasks_path
+  		@tasks.destroy
   		RegistrationMailer.task_destroyed(@tasks, @user_mail).deliver
-  		
+  		render nothing: true
 	end
 
 	def update
