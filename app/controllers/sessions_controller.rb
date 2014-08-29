@@ -3,8 +3,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.authenticate(params[:email], params[:password])
-   # binding.pry
+    user1 = params[:email]
+    user = User.authenticate(params[:email].downcase, params[:password])
+    #binding.pry
       
         if user
           if user.active_code == 'active'

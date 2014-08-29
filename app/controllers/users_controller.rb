@@ -35,14 +35,20 @@ end
 
 def create
 	#binding.pry
+  mail1 = user_param[:email]
+  mail = user_param[:email].downcase
+  user_param[:email] = user_param[:email].downcase
   @user = User.new(user_param)
   @user.active_code = Digest::MD5.hexdigest @user.email
+  @user.email = user_param[:email].downcase
+  #@user.email = @user.email.
   if
    @user.save
     redirect_to root_url, :notice => "Signed up!"
   else
     render "new"
   end
+  binding.pry
   RegistrationMailer.user_active(@user).deliver
 end
 
