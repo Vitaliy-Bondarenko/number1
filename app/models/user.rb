@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
     else
       nil
     end
-    binding.pry
+    #binding.pry
   end
   
   def encrypt_password
