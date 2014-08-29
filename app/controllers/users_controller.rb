@@ -15,24 +15,6 @@ def registration_user
   #RegistrationMailer.user_active(@user).deliver
 end
 
-def edit
-  @user = User.find(params[:id])
-end
-
-def show
-  @user = User.find(params[:id])
-end
-
-def destroy
-  @user = User.find(params[:id])
-  @user.destroy
-  redirect_to root_url
-end
-
-def index
-  @user = User.all
-end
-
 def create
 	#binding.pry
   @user = User.new(user_param)
