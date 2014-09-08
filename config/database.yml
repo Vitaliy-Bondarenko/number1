@@ -5,7 +5,7 @@ development:
   password: qwe123
   host: 127.0.0.1
   port: 3306
-test:
+test: &test
   adapter: mysql
   database: con_db_test
   username: root
@@ -19,3 +19,6 @@ production:
   password: qwe123
   host: 127.0.0.1
   port: 3306
+
+cucumber:
+  <<: *test

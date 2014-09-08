@@ -3,13 +3,11 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user1 = params[:email]
     user = User.authenticate(params[:email].downcase, params[:password])
-    #binding.pry
-      
-        if user
+        if user 
           if user.active_code == 'active'
             session[:user_id] = user.id
+            #binding.pry
             redirect_to tasks_path, :notice => "Logged in!"
           else
             flash[:notice] = "Go to the post office to activate your account"

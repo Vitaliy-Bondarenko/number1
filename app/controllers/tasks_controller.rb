@@ -12,7 +12,9 @@ class TasksController < ApplicationController
 	def create
 		@task = Task.new(task_param)
 		@task.user = current_user
+		#binding.pry
 		if @task.save
+				#binding.pry
     		redirect_to tasks_path
   			else
     		render 'new'
@@ -39,6 +41,7 @@ class TasksController < ApplicationController
 	end
 
 	def show
+		#binding.pry
 		@task = Task.find(params[:id])
 		#binding.pry
 		if current_user.id == @task.user_id
@@ -47,30 +50,34 @@ class TasksController < ApplicationController
 	end
 
 	def destroy
-  		@tasks = Task.find(params[:id])
+  		@tasks = [Task.find(params[:id])]
+  		#binding.pry
   		@user_mail = current_user
-  		@tasks.destroy
+  		@tasks.delete(params[:id])
   		RegistrationMailer.task_destroyed(@tasks, @user_mail).deliver
   		render nothing: true
 	end
 
 	def update
   		@task = Task.find(params[:id])
-   		if @task.update(task_param)
-    		redirect_to tasks_path
+
+   		if @task.errors.empty?  
+   			@task.update(task_param)
+   			redirect_to tasks_path
   		else
-    		render 'edit'
+  			render 'edit'
   		end
 	end
 
 	def delete_tasks
-		#binding.pry
 		@user_mail = current_user
+	  if params[:task_ids] != nil
 	  	@tasks = Task.find(params[:task_ids])
 	  	Task.delete(params[:task_ids])
-	  	redirect_to tasks_path
 	  	RegistrationMailer.task_destroyed(@tasks, @user_mail).deliver
-	end
+	  	end
+		redirect_to tasks_path
+	 end
 
 
 	private 
