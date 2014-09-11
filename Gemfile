@@ -10,8 +10,8 @@ group :development, :test do
   gem 'mysql'
 end
 group :production do
-	gem 'pg'
-	gem 'rails_12factor'
+  gem 'pg'
+  gem 'rails_12factor'
 end
 
 gem 'pry'
@@ -30,6 +30,11 @@ group :test, :development do
   gem 'faker'
 end
 
+group :test do
+  gem 'nyan-cat-formatter'
+  gem 'rspec-collection_matchers'
+  gem 'shoulda-matchers', require: false
+end
 
 gem "bcrypt-ruby", :require => "bcrypt"
 # Use SCSS for stylesheets
