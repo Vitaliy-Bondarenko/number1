@@ -1,33 +1,33 @@
 <%- model_class = Task -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
-</div>
-<%= form_tag delete_tasks_tasks_path, method: :delete do %>
-<table class="table table-hover" >
-<thead>
-<tr>
-<th><%= check_box_tag 'checked_all' %></th>
-<th><%= sortable "title" %></th>
-<th><%= sortable "description"  %></th>
-<th><%= sortable "priority" %></th>
-<th><%= sortable "due_date" %></th>
-</tr>
-</thead>
-<tbody>
-<% @task.each do |task| %>
-<tr data-task_id="<%= task.id %>">
-<td><%= check_box_tag "task_ids[]", task.id %></td>
-<td><%= link_to task.title, task_path(task) %></td>
-<td><%= task.description %></td>
-<td><%= task.priority %></td>
-<td><%= task.due_date %></td>
-<td><%= link_to 'Edit', edit_task_path(task) %></td>
-<td><span class="del">Destroy</span></td>
-</tr>
-<% end %>
-</tbody>
-</table>
-<br />
-<%= submit_tag "Destroy Checked", :class => "btn btn-warning" %>
-<%= link_to t('.New task', :default => t("helpers.links.New_task")), new_task_path, :class => 'btn btn-primary'  %>
+  <div class="page-header">
+    <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+  </div>
+  <%= form_tag delete_tasks_tasks_path, method: :delete do %>
+  <table class="table table-hover" >
+    <thead>
+      <tr>
+      <th><%= check_box_tag 'checked_all' %></th>
+      <th><%= sortable "title" %></th>
+      <th><%= sortable "description"  %></th>
+      <th><%= sortable "priority" %></th>
+      <th><%= sortable "due_date" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tasks.each do |task| %>
+        <tr data-task_id="<%= task.id %>">
+          <td><%= check_box_tag "task_ids[]", task.id %></td>
+          <td><%= link_to task.title, task_path(task) %></td>
+          <td><%= task.description %></td>
+          <td><%= task.priority %></td>
+          <td><%= task.due_date %></td>
+          <td><%= link_to 'Edit', edit_task_path(task) %></td>
+          <td><span class="del">Destroy</span></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <br />
+  <%= submit_tag "Destroy Checked", :class => "btn btn-warning" %>
+  <%= link_to t('.New task', :default => t("helpers.links.New_task")), new_task_path, :class => 'btn btn-primary'  %>
 <% end %>

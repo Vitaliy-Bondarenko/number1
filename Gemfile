@@ -10,8 +10,12 @@ group :development, :test do
   gem 'mysql'
 end
 group :production do
-	gem 'pg'
-	gem 'rails_12factor'
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+group :test do
+  gem "nyan-cat-formatter"
 end
 
 gem 'pry'
@@ -23,11 +27,13 @@ gem 'twitter-bootstrap-rails'
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'rspec-collection_matchers'
   gem 'factory_girl_rails'
   gem 'simplecov', :require => false
   gem 'cucumber-rails', :require => false
   gem 'database_cleaner'
   gem 'faker'
+  gem 'shoulda-matchers'
 end
 
 

@@ -7,8 +7,8 @@ root :to => "sessions#new"
 resources :users
 resources :sessions
 resources :tasks do
-	collection do
-		delete 'delete_tasks'
-	end
+  collection do
+    delete 'delete_tasks'
+  end
 end
 end

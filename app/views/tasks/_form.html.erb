@@ -1,6 +1,5 @@
 <%= form_for @task, :html => { :class => "form-horizontal task" } do |f| %>
-
-    <% if @task.errors.any? %>
+  <% if @task.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
         <h3 class="panel-title"><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h3>
@@ -15,37 +14,37 @@
     </div>
   <% end %>
   <div class="cont">
-  <div class="control-group">
-    <%= f.label :title, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :title, :class => 'form-control' %>
+    <div class="control-group">
+      <%= f.label :title, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :title, :class => 'form-control' %>
+      </div>
+      <%= error_span(@task[:title]) %>
     </div>
-    <%= error_span(@task[:title]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :description, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_area :description, size: "10x8", :class => 'form-control' %>
+    <div class="control-group">
+      <%= f.label :description, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :description, size: "10x8", :class => 'form-control' %>
+      </div>
+      <%= error_span(@task[:description]) %>
     </div>
-    <%= error_span(@task[:description]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :priority, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.number_field :priority, in: 1.0..5.0, step: 1, :placeholder => "1..5", :class => 'form-control' %>
+    <div class="control-group">
+      <%= f.label :priority, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.number_field :priority, in: 1.0..5.0, step: 1, :placeholder => "1..5", :class => 'form-control' %>
+      </div>
+      <%= error_span(@task[:priority]) %>
     </div>
-    <%= error_span(@task[:priority]) %>
-  </div>
-  <div class="control-group">
-    <%= f.label :due_date, :class => 'control-label' %>
-    <div class="controls">
-      <%= f.text_field :due_date, :placeholder => "due date should be a future date", :class => 'form-control' %>
+    <div class="control-group">
+      <%= f.label :due_date, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :due_date, :placeholder => "due date should be a future date", :class => 'form-control' %>
+      </div>
+      <%= error_span(@task[:due_date]) %>
     </div>
-    <%= error_span(@task[:due_date]) %>
-  </div>
-  <br />
-  <%= f.submit nil, :class => 'btn btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+    <br/>
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
             tasks_path, :class => 'btn btn-warning' %>
-</div>
+  </div>
 <% end %>

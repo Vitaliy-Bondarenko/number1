@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  def new
+
+def new
   @user = User.new
 end
 
@@ -13,30 +14,30 @@ def registration_user
     else
       render "new"
     end
-  else redirect_to tasks_path  
+  else
+   redirect_to tasks_path  
   end
 end
 
 def create
-  #binding.pry
   if current_user == nil
-    #binding.pry
     @user = User.new(user_param)
     @user.active_code = Digest::MD5.hexdigest @user.email
     @user.email = user_param[:email].downcase
     if
       @user.save
-      #binding.pry
       redirect_to root_url, :notice => "Signed up!"
     else
       render "new"
     end 
     RegistrationMailer.user_active(@user).deliver
-  else redirect_to tasks_path
+  else 
+    redirect_to tasks_path
   end
 end
 
- private 
+ private
+  
  def user_param 
   params.require(:user).permit(:email, :fname, :lname, :password, :password_confirmation, :age) 
  end 
