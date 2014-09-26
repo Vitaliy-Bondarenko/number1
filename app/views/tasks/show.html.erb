@@ -11,7 +11,7 @@
   <dt><strong><%= model_class.human_attribute_name(:priority) %>:</strong></dt>
   <dd><%= @task.priority %></dd>
   <dt><strong><%= model_class.human_attribute_name(:due_date) %>:</strong></dt>
-  <dd><%= @task.due_date %> <%=', end will be'%>   <%= @task.due_date - Date.today%></dd>
+  <dd><%= @task.due_date %> <%=', end will be'%>   <%= @task.due_date - Date.today %></dd>
   
 </dl>
 

@@ -20,13 +20,17 @@ gem 'bootstrap-datepicker-rails'
 gem 'less-rails-bootstrap'
 gem 'bootstrap-sass'
 gem 'twitter-bootstrap-rails'
+gem 'cucumber-rails'
+gem 'capybara'
+gem 'database_cleaner'
+
 
 group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'simplecov', :require => false
-  gem 'cucumber-rails', :require => false
-  gem 'database_cleaner'
+  
+  
   gem 'faker'
 end
 

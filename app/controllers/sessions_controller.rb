@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
   
   def new
+    if session[:user_id] != nil
+      redirect_to tasks_path
+    end
   end
 
   def create
